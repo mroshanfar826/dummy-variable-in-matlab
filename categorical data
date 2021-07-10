@@ -1,0 +1,16 @@
+%%% method1
+es = ismember(Data.اسم ستونی که داده متنی داره,'اسم متغیری از ستون مورد نظر')
+es = double(es);
+rs = array2table(es,'variableNames',{'اسم متغییری که تو ستون هست'});
+Data=[Data rs]
+
+%%% method2
+k=unique(sample.test);
+dummy_varibale=[];
+variable=sample.test;
+for i=1:length(k)
+    dummy_variable(:,i)=double(ismember(variable,k(i)));
+end
+k=cellstr(k);
+rs=array2table(dummy_variable,'VariableNames',k);
+Data=[sample rs]
